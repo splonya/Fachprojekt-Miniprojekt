@@ -18,12 +18,17 @@ public class Projectile : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (gameObject.name != "bullet")
-        {
-            transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
-        }
+        transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
-        if(Vector2.Distance(transform.position, target) < 0.2f)
+        if (Vector2.Distance(transform.position, target) < 0.2f)
+        {
+            Destroy(gameObject);
+        }
+    }
+
+    void OnTriggerEnter2D(Collider2D obstacle)
+    {
+        if (obstacle.CompareTag("Enemy"))
         {
             Destroy(gameObject);
         }

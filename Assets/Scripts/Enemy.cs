@@ -4,20 +4,36 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public float speed;
-    public GameObject player;
+    private GameObject playerObject;
+    private Transform playerTransform;
 
-    private Transform playerPos;
+    public float speed;
 
     // Start is called before the first frame update
     void Start()
     {
-        playerPos = player.transform;
+        playerObject = GameObject.FindGameObjectWithTag("Player");
+        playerTransform = playerObject.GetComponent<Transform>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, playerPos.position, speed * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
+    }
+
+    void OnTriggerEnter2D(Collider2D obstacle)
+    {
+        if(obstacle.CompareTag("Player"))
+        {
+            var player = playerObject.GetComponent<Player>();
+            player.health--;
+            Destroy(gameObject);
+        }
+        
+        if (obstacle.CompareTag("Bullet"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
