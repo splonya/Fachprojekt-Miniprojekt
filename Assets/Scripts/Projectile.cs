@@ -1,23 +1,28 @@
-﻿using System;
+﻿using Assets.Scripts.BaseBehaviors;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Projectile : MonoBehaviour
+public class Projectile : LiveObject, IAttacker
 {
     public float speed;
 
     private Vector2 target;
 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
+        base.Start();
+
         target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
     // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
+        base.Update();
+
         transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
 
         if (Vector2.Distance(transform.position, target) < 0.2f)
@@ -28,9 +33,11 @@ public class Projectile : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D obstacle)
     {
-        if (obstacle.CompareTag("Enemy"))
-        {
-            Destroy(gameObject);
-        }
+        collisionController.Collide(this, obstacle);
+    }
+
+    public void Attack(LiveObject target)
+    {
+        target.health--;
     }
 }

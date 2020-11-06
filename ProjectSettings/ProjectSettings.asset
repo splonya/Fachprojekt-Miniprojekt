@@ -630,10 +630,10 @@ PlayerSettings:
     m_VersionCode: 1
     m_VersionName: 
   apiCompatibilityLevel: 6
-  cloudProjectId: 
+  cloudProjectId: b81a3b04-6c15-4477-8636-c3cd0a646440
   framebufferDepthMemorylessMode: 0
-  projectName: 
-  organizationId: 
+  projectName: Miniprojekt
+  organizationId: splonya
   cloudEnabled: 0
   enableNativePlatformBackendsForNewInputSystem: 0
   disableOldInputManagerSupport: 0
