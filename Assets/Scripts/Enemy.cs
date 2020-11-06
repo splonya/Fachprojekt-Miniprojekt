@@ -1,39 +1,31 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.BaseBehaviors;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class Enemy : LiveObject, IAttacker
 {
     private GameObject playerObject;
     private Transform playerTransform;
 
     public float speed;
 
-    // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
+        base.Start();
+
         playerObject = GameObject.FindGameObjectWithTag("Player");
         playerTransform = playerObject.GetComponent<Transform>();
     }
 
-    // Update is called once per frame
-    void Update()
+    protected override void Update()
     {
+        base.Update();
         transform.position = Vector2.MoveTowards(transform.position, playerTransform.position, speed * Time.deltaTime);
     }
 
-    void OnTriggerEnter2D(Collider2D obstacle)
+    public void Attack(LiveObject target)
     {
-        if(obstacle.CompareTag("Player"))
-        {
-            var player = playerObject.GetComponent<Player>();
-            player.health--;
-            Destroy(gameObject);
-        }
-        
-        if (obstacle.CompareTag("Bullet"))
-        {
-            Destroy(gameObject);
-        }
+        target.health--;
     }
 }
