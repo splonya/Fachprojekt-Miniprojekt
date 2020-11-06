@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class Player : MonoBehaviour
 {
     public float speed;
-    public float health = 10;
+    public float health = 12;
 
     public Rigidbody2D rb;
     public Text healthDisplay;
