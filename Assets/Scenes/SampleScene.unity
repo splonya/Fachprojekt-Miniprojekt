@@ -255,7 +255,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4de5f1607b73e3e40aea6816cf74b0e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shot: {fileID: 7734601123987836609, guid: f75f6917944eaef4e8a78ddd24f185e9, type: 3}
+  shot: {fileID: 2208496690037104171, guid: f75f6917944eaef4e8a78ddd24f185e9, type: 3}
   playerPosition: {fileID: 5849846}
 --- !u!58 &5849848
 CircleCollider2D:
@@ -593,6 +593,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1752419010}
+  - component: {fileID: 1752419011}
   m_Layer: 0
   m_Name: API
   m_TagString: API
@@ -614,6 +615,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1752419011
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752419009}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c1650fcb72d6f548896dfb8624f85da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1824267263
 GameObject:
   m_ObjectHideFlags: 0
