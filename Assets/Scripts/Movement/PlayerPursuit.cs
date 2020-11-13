@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerPursuit : MonoBehaviour
+public class PlayerPursuit : MovableObject
 {
-    public float speed;
-
     private Transform playerTransform;
 
     void Start()
