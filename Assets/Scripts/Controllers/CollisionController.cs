@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Assets.Scripts.BaseBehaviors;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,11 +7,10 @@ public class CollisionController : MonoBehaviour
 {
     public void Collide(Player player, Collider2D collider2D)
     {
-        var collisionObject = collider2D.gameObject;
-
-        if(collisionObject.TryGetComponent<Enemy>(out var enemy))
+        var collisionObject = collider2D.gameObject;  
+        if(collisionObject.TryGetComponent<BaseAttacker>(out var attacker))
         {
-            Collide(player, enemy);
+            attacker.Attack(player);
         }
     }
 
@@ -18,20 +18,25 @@ public class CollisionController : MonoBehaviour
     {
         var collisionObject = collider2D.gameObject;
 
-        if (collisionObject.TryGetComponent<Enemy>(out var enemy))
+        if (collisionObject.TryGetComponent<LiveObject>(out var liveObject))
         {
-            Collide(projectile, enemy);
+            if(liveObject.isAttackable)
+            {
+                projectile.Attack(liveObject);
+            }
         }
-    }
 
-    private void Collide(Player player, Enemy enemy)
-    {
-        enemy.Attack(player);
-    }
+        if (collisionObject.TryGetComponent<BaseAttacker>(out var attacker))
+        {
+            attacker.Attack(projectile);
+        }
 
-    private void Collide(Projectile projectile, Enemy enemy)
-    {
-        projectile.Attack(enemy);   
-        enemy.Attack(projectile);
+        if (collisionObject.TryGetComponent<BlindSpot>(out var blindSpot))
+        {
+            if (blindSpot.transform.parent.TryGetComponent<LiveObject>(out var parentLiveObject))
+            {
+                projectile.Attack(parentLiveObject);
+            }
+        }
     }
 }
