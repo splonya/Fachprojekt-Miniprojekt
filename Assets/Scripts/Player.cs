@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,9 +10,15 @@ public class Player : LiveObject
 
     public Rigidbody2D rb;
     public Text healthDisplay;
+    public SwitchScene switchSceneScript;
 
 
     private Vector2 moveVelocity;
+
+    protected override void Start()
+    {
+        base.Start();
+    }
 
     // Update is called once per frame
     protected override void Update()
