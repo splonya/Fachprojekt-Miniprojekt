@@ -6,10 +6,12 @@ using UnityEngine;
 public class LiveObject : APISupportedObject
 {
     public int health;
+
     public bool isAttackable = true;
     public bool isHostile = true;
 
     protected Action deathCallback;
+
     protected virtual void Update()
     {
         if(health <= 0)

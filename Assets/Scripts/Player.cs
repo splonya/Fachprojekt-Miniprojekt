@@ -10,7 +10,6 @@ public class Player : LiveObject
 
     public Rigidbody2D rb;
     public Text healthDisplay;
-    public SwitchScene switchSceneScript;
 
 
     private Vector2 moveVelocity;

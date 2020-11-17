@@ -28,7 +28,6 @@ public class CollisionController : MonoBehaviour
 
         if (collisionObject.TryGetComponent<BaseAttacker>(out var attacker))
         {
-            Debug.Log("there");
             attacker.Attack(projectile);
         }
 
