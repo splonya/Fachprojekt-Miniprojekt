@@ -14,13 +14,13 @@ public class CollisionController : MonoBehaviour
         }
     }
 
-    public void Collide(Projectile projectile, Collider2D collider2D)
+    public void Collide(FriendlyProjectile projectile, Collider2D collider2D)
     {
         var collisionObject = collider2D.gameObject;
 
         if (collisionObject.TryGetComponent<LiveObject>(out var liveObject))
         {
-            if(liveObject.isAttackable)
+            if(liveObject.isAttackable && liveObject.isHostile)
             {
                 projectile.Attack(liveObject);
             }
@@ -37,6 +37,21 @@ public class CollisionController : MonoBehaviour
             {
                 projectile.Attack(parentLiveObject);
             }
+        }
+    }
+
+    public void Collide(EnemyProjectile projectile, Collider2D collider2D)
+    {
+        var collisionObject = collider2D.gameObject;
+
+        if (collisionObject.TryGetComponent<Player>(out var player))
+        {
+            projectile.Attack(player);
+        }
+
+        if (collisionObject.TryGetComponent<FriendlyProjectile>(out var friendlyProjectile))
+        {
+            projectile.Attack(friendlyProjectile);
         }
     }
 }
