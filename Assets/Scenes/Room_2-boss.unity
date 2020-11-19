@@ -560,7 +560,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c40f11c23c84684e97bb22373f01f5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneId: 7
+  nextSceneId: 0
   delay: 2
   isManual: 1
 --- !u!114 &697000134
