@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +13,11 @@ public class Player : LiveObject
 
 
     private Vector2 moveVelocity;
+
+    protected override void Start()
+    {
+        base.Start();
+    }
 
     // Update is called once per frame
     protected override void Update()
