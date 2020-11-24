@@ -44,4 +44,25 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Room_2-boss.unity
     guid: 79c47d019c57ee04e9ac504821a70727
+  - enabled: 1
+    path: Assets/Scenes/Zone2Completed.unity
+    guid: 9c8feea5a13769c4ab30674fd5063668
+  - enabled: 1
+    path: Assets/Scenes/Room_3-1.unity
+    guid: 1b39410806312b04a9d7a415c25c1e5e
+  - enabled: 1
+    path: Assets/Scenes/AfteRoom3-1.unity
+    guid: 9e26415a64ead49438257ec64aba0d2b
+  - enabled: 1
+    path: Assets/Scenes/Room_3-2.unity
+    guid: 02582b4165e782a408a4c8d030e8d672
+  - enabled: 1
+    path: Assets/Scenes/AfteRoom3-2.unity
+    guid: 4690ec9d0e3f9a1419dfe64ef1e2a8cb
+  - enabled: 1
+    path: Assets/Scenes/Room_3-boss.unity
+    guid: 4801269aee6bdfd4b888ced53ac97f94
+  - enabled: 1
+    path: Assets/Scenes/Win.unity
+    guid: 24743c2383749044abe62f39b513447d
   m_configObjects: {}

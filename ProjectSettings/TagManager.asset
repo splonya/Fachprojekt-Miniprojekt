@@ -8,6 +8,8 @@ TagManager:
   - Enemy
   - API
   - EnemyBullet
+  - Healthbar
+  - Boss
   layers:
   - Default
   - TransparentFX

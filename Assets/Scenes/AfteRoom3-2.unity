@@ -333,7 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c40f11c23c84684e97bb22373f01f5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextSceneId: 12
+  nextSceneId: 18
   delay: 3
   isManual: 0
 --- !u!4 &378561598
@@ -546,8 +546,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "I've not seen such a warrior for a long time. Fortunatelly, i still have
-    something \nin stock for you...)"
+  m_text: The last sentinel is waiting for you. Hope you've prepaired well...
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}

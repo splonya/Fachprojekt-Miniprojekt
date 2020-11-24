@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CollisionController : MonoBehaviour
 {
@@ -23,6 +24,14 @@ public class CollisionController : MonoBehaviour
             if(liveObject.isAttackable && liveObject.isHostile)
             {
                 projectile.Attack(liveObject);
+                if(collisionObject.CompareTag("Boss"))
+                {
+                    var slider = GameObject.FindGameObjectWithTag("Healthbar").GetComponent<Slider>();
+                    if (slider != null)
+                    {
+                        slider.value = liveObject.health;
+                    }
+                }
             }
         }
 
@@ -36,6 +45,14 @@ public class CollisionController : MonoBehaviour
             if (blindSpot.transform.parent.TryGetComponent<LiveObject>(out var parentLiveObject))
             {
                 projectile.Attack(parentLiveObject);
+                if (blindSpot.transform.parent.CompareTag("Boss"))
+                {
+                    var slider = GameObject.FindGameObjectWithTag("Healthbar").GetComponent<Slider>();
+                    if (slider != null)
+                    {
+                        slider.value = parentLiveObject.health;
+                    }
+                }
             }
         }
     }

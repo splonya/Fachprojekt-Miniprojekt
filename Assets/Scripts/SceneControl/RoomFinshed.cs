@@ -13,10 +13,12 @@ public class RoomFinshed : MonoBehaviour
     public GameObject player;
 
     private List<GameObject> enemies;
+    private GameObject boss;
 
     void Start()
     {
         enemies = GameObject.FindGameObjectsWithTag("Enemy").OfType<GameObject>().ToList();
+        boss = GameObject.FindGameObjectWithTag("Boss");
     }
 
     void Update()
@@ -25,7 +27,7 @@ public class RoomFinshed : MonoBehaviour
         {
             loadNewSceneScript.LoadFailScene();
         }
-        else if(enemies.All(x => x == null))
+        else if(enemies.All(x => x == null) && boss == null)
         {
             loadNewSceneScript.LoadScene();
         }

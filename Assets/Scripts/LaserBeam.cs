@@ -31,7 +31,8 @@ public class LaserBeam : MonoBehaviour
         if (Physics2D.Raycast(start.position, transform.right))
         {
             RaycastHit2D hit = Physics2D.Raycast(start.position, transform.right);
-            Draw2DRay(start.position, end.position);
+
+            //Draw2DRay(start.position, transform.right);
 
             if (hit.collider != null)
             {
@@ -46,7 +47,7 @@ public class LaserBeam : MonoBehaviour
         }
         else
         {
-            Draw2DRay(start.position, start.transform.right * defDistanceRay);
+            Draw2DRay(start.position, end.position);
         }
 
     }
